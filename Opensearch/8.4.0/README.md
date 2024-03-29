@@ -34,4 +34,4 @@ kubectl create secret tls dev-c8-separated \
 
 5. Install C8
 
-`helm install camunda camunda/camunda-platform`
+`helm install camunda camunda/camunda-platform -f values.yaml`
