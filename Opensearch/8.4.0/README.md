@@ -19,6 +19,11 @@ kubectl create secret docker-registry dev-c8-registry \
     	    --docker-password='<your-password>' \
     	    --docker-email=<your-email>
 ```
+```
+kubectl create secret tls dev-c8-separated \
+--cert dev.c8.separated.crt \
+--key dev.c8.separated.key
+```
 3. Install the nginx-ingress controller
 
 `helm install -f nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0`
