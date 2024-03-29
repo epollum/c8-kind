@@ -14,15 +14,15 @@ This readme assumes:
 2. Create your TLS secrets
 ```
 kubectl create secret docker-registry dev-c8-registry \
-    	    --docker-server=registry.camunda.cloud \
-    	    --docker-username=<your-username> \
-    	    --docker-password='<your-password>' \
-    	    --docker-email=<your-email>
+    --docker-server=registry.camunda.cloud \
+    --docker-username=<your-username> \
+    --docker-password='<your-password>' \
+    --docker-email=<your-email>
 ```
 ```
 kubectl create secret tls dev-c8-separated \
---cert dev.c8.separated.crt \
---key dev.c8.separated.key
+    --cert dev.c8.separated.crt \
+    --key dev.c8.separated.key
 ```
 3. Install the nginx-ingress controller
 
