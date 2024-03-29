@@ -6,7 +6,6 @@ This readme assumes:
 1. You have followed the steps in the base readme to set up your /etc/hosts file to direct traffic to your kubernetes cluster.
 2. [You have added the Camunda repo to helm](https://docs.camunda.io/docs/next/self-managed/platform-deployment/helm-kubernetes/deploy/#helm-repository)
 3. [You have added the Opensearch repo to helm](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/helm/#install-opensearch-using-helm)
-4. 
 
 ## Basic Installation
 1. Create the Kind cluster 
