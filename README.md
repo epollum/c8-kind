@@ -24,3 +24,14 @@ helm repo update
 127.0.0.1   web-sockets.c8.dev.local
 127.0.0.1   zeebe.c8.dev.local
 ```
+
+4. Create your Kind cluster by using either the Combined Ingress setup, or the Seperated Ingress setup.
+
+5. Launch your ingress controller.
+
+6. (Optional) Launch Opensearch.
+
+7. Deploy your selection of Camunda 8 values files. For example, if you would like to install a basic setup with combined ingress you can run:
+`helm install dev camunda/camunda-platform -f combined.yaml -f base-values.yaml`
+If you want to launch the basic combined ingress setup but use Opensearch you would run:
+`helm install dev camunda/camunda-platform -f  base-values.yaml -f opensearch-values.yaml`
