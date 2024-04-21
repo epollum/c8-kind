@@ -4,9 +4,13 @@ Deployments for C8 using Kind
 ## Installation Steps
 
 1. Decide if you want a combined or seperated ingress. In the respective folders for each ingress setup, you will find a create-cluster.yaml file. Use this to create your Kind cluster. This creates a single node kubernetes cluster.
-`kind create cluster -f create-cluster.yaml`
+```
+kind create cluster -f create-cluster.yaml
+```
 You will also find a config file for launching a 3 node cluster.
-`kind create cluster -f create-multi-node-cluster.yaml`
+```
+kind create cluster -f create-multi-node-cluster.yaml
+```
 
 2. Add the TLS certificates to the cluster. Be sure to use the correct certificate name:
 ```
@@ -26,10 +30,14 @@ kubectl create secret docker-registry dev-c8-registry \
 
 4. Install the ingress controller of your choice. Open the controller's folder to find the relevant values.yaml to install.
 
-` helm install -f nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0`
+```
+helm install -f nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0
+```
 
 5. You have all the components needed to install Camunda 8. Navigate to the verison you would like to install and select the options you'd like to install. For example, if you would like to install a basic setup with combined ingress, you can naviagte to the version you want to install and run:
-`helm install camunda camunda/camunda-platform -f combined.yaml -f base-values.yaml`
+```
+helm install camunda camunda/camunda-platform -f combined.yaml -f base-values.yaml
+```
 
 
 ## (Optional) Install Opensearch
