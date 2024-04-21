@@ -7,7 +7,7 @@ Deployments for C8 using Kind
 ```
 kind create cluster -f create-cluster.yaml
 ```
-You will also find a config file for launching a 3 node cluster.
+You will also find a config file for launching a 4 node cluster. This creates one control plane, and 3 worker nodes. This is useful for running multiple broker scenarios.
 ```
 kind create cluster -f create-multi-node-cluster.yaml
 ```
