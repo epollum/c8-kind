@@ -3,8 +3,10 @@ Deployments for C8 using Kind
 
 ## Installation Steps
 
-1. Decide if you want a combined or seperated ingress. In the respective folders for each ingress setup, you will find a create-cluster.yaml file. Use this to create your Kind cluster.
+1. Decide if you want a combined or seperated ingress. In the respective folders for each ingress setup, you will find a create-cluster.yaml file. Use this to create your Kind cluster. This creates a single node kubernetes cluster.
 `kind create cluster -f create-cluster.yaml`
+You will also find a config file for launching a 3 node cluster.
+`kind create cluster -f create-multi-node-cluster.yaml`
 
 2. Add the TLS certificates to the cluster. Be sure to use the correct certificate name:
 ```

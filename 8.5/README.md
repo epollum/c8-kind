@@ -1,7 +1,5 @@
 # Camunda 8.5 Kind Cluster Install
 
-:bangbang: [Be sure to follow the Base Instructions in the main README](..) :bangbang:
-
 ## Base Installation Steps
 You must do this before installing any of the clusters available here.
 1. [Install Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
