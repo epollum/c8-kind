@@ -2,7 +2,9 @@
 # Note: you can change the global.image.tag version value as needed.
 global:
   image:
-    tag: 8.4.0
+    tag: 8.4.6
+  elasticsearch:
+    disableExporter: true
   identity:
     auth:
       publicIssuerUrl: "https://keycloak.c8.dev.local/auth/realms/camunda-platform"
