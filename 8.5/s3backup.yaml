@@ -1,0 +1,31 @@
+zeebe:
+  env:
+    - name: ZEEBE_BROKER_DATA_BACKUP_STORE
+      value: s3
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_BUCKETNAME
+    	value: ""
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_BASEPATH
+    	value: ""
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_ENDPOINT
+    	value: "s3.amazonaws.com"
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_REGION
+    	value: ""
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_ACCESSKEY
+    	value: ""
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_SECRETKEY
+    	value: ""
+
+operate:
+  env:
+    - name: CAMUNDA_OPERATE_BACKUP_REPOSITORYNAME
+      value: "backup-repo"
+
+tasklist:
+  env:
+    - name: CAMUNDA_TASKLIST_BACKUP_REPOSITORYNAME
+      value: "backup-repo"
+
+optimize:
+  env:
+    - name: CAMUNDA_OPTIMIZE_BACKUP_REPOSITORY_NAME
+      value: "backup-repo"
