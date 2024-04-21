@@ -1,0 +1,8 @@
+image:
+  tag: 2.5.0
+singleNode: true
+ingress:
+  enabled: true
+extraEnvs:
+  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+    value: StrongPassword1234!
