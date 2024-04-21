@@ -73,8 +73,6 @@ identity:
   env:
     - name: IDENTITY_LOG_LEVEL
       value: TRACE
-  # postgresql:
-  #   enabled: false
   ingress:
     enabled: true
     host: "identity.c8.dev.local"
@@ -84,19 +82,11 @@ identity:
 
 identityPostgresql:
   enabled: true
-  # auth:
-  #   username: identity_postgres
-  #   database: identity
-  #   password: SetThisToMakeHelmUpgradesEasy
 
 identityKeycloak:
   enabled: true
   postgresql:
     enabled: true
-    # auth:
-    #   username: keycloak_postgres
-    #   database: keycloak
-    #   password: SetThisToMakeHelmUpgradesEasy
   extraEnvVars:
     - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
       value: "true"
@@ -189,10 +179,6 @@ webModeler:
 
 postgresql:
   enabled: true
-  # auth:
-  #   username: webmodeler_postgres
-  #   password: SetThisToMakeHelmUpgradesEasy
-
  
 # Reduce Elasticsearch replicas and resources to make it run locally
 elasticsearch:
