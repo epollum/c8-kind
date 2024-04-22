@@ -50,11 +50,11 @@ optimize:
 identity:
   fullURL: "https://identity.c8.dev.local"
   ingress:
-  enabled: true
-  host: "identity.c8.dev.local"
-  tls:
     enabled: true
-    secretName: "dev-c8-separated"
+    host: "identity.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated"
   
 identityKeycloak:
   ingress:

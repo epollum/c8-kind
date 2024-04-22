@@ -28,57 +28,38 @@ zeebe:
   partitionCount: 1
   replicationFactor: 1
   pvcSize: 8Gi
+  debug: true
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_ZEEBE
+      value: DEBUG
   
 zeebe-gateway:
   replicas: 1
   env:
     - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
       value: none
-  ingress:
-    enabled: true
-    host: "zeebe.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated"
+    - name: LOGGING_LEVEL_IO_CAMUNDA_GATEWAY
+      value: DEBUG
 
 operate:
-  ingress:
-    enabled: true
-    host: "operate.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated"
   env:
     - name: LOGGING_LEVEL_IO_CAMUNDA_OPERATE
-      value: TRACE
+      value: DEBUG
   
 tasklist:
-  ingress:
-    enabled: true
-    host: "tasklist.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated"
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_TASKLIST
+      value: DEBUG
 
 optimize:
-  ingress:
-    enabled: true
-    host: "optimize.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated"
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_OPTIMIZE
   
 identity:
   fullURL: "https://identity.c8.dev.local"
   env:
     - name: IDENTITY_LOG_LEVEL
-      value: TRACE
-  ingress:
-    enabled: true
-    host: "identity.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated"
+      value: DEBUG
 
 identityPostgresql:
   enabled: true
@@ -94,15 +75,6 @@ identityKeycloak:
       value: DEBUG
     - name: KC_LOG_LEVEL
       value: DEBUG
-  ingress:
-    enabled: true
-    tls: true
-    ingressClassName: "nginx"
-    hostname: "keycloak.c8.dev.local"
-    extraTls:
-      - hosts:
-        - keycloak.c8.dev.local
-        secretName: "dev-c8-separated"
   auth:
     adminPassword: SetThisToMakeLoginEasy
     managementPassword: SetThisToMakeLoginEasy
@@ -164,18 +136,6 @@ webModeler:
       - name: dev-c8-separated
         mountPath: "/home/runner/dev.c8.separated.crt"
         subPath: tls.crt
-  ingress:
-    enabled: true
-    webapp:
-      host: "modeler.c8.dev.local"
-      tls:
-        enabled: true
-        secretName: "dev-c8-separated"
-    websockets:
-      host: "web-sockets.c8.dev.local"
-      tls:
-        enabled: true
-        secretName: "dev-c8-separated"
 
 postgresql:
   enabled: true
