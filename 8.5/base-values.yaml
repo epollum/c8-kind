@@ -29,6 +29,9 @@ zeebe:
   replicationFactor: 1
   pvcSize: 8Gi
   debug: true
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_ZEEBE
+      value: DEBUG
   
 zeebe-gateway:
   replicas: 1
@@ -36,6 +39,7 @@ zeebe-gateway:
     - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
       value: none
     - name: LOGGING_LEVEL_IO_CAMUNDA_GATEWAY
+      value: DEBUG
 
 operate:
   env:
