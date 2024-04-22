@@ -18,6 +18,12 @@ kubectl create secret tls dev-c8-separated \
 --cert dev.c8.separated.crt \
 --key dev.c8.separated.key
 ```
+or
+```
+kubectl create secret tls dev-c8-combined \
+--cert dev.c8.combined.crt \
+--key dev.c8.combined.key
+```
 
 3. Add your docker registry information so you can download web-modeler. Replace the placeholders in the below declaration:
 ```
