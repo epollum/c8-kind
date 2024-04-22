@@ -6,21 +6,6 @@ global:
   postgresql:
     auth:
       password: SetThisToMakeHelmUpgradesEasy
-  identity:
-    auth:
-      publicIssuerUrl: "https://keycloak.c8.dev.local/auth/realms/camunda-platform"
-      operate:
-        existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://operate.c8.dev.local"
-      tasklist:
-        existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://tasklist.c8.dev.local"
-      optimize:
-        existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://optimize.c8.dev.local"
-      webModeler:
-        existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://modeler.c8.dev.local"
   
 # Reduce Zeebe and Gateway replicas and resources to make it run locally
 zeebe:

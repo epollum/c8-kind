@@ -14,13 +14,13 @@ kind create cluster -f create-multi-node-cluster.yaml
 
 2. Add the TLS certificates to the cluster. Be sure to use the correct certificate name:
 ```
-kubectl create secret tls dev-c8-separated \
+kubectl create secret tls dev-c8-separated-tls \
 --cert dev.c8.separated.crt \
 --key dev.c8.separated.key
 ```
 or
 ```
-kubectl create secret tls dev-c8-combined \
+kubectl create secret tls dev-c8-combined-tls \
 --cert dev.c8.combined.crt \
 --key dev.c8.combined.key
 ```

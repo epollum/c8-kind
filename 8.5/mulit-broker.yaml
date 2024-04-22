@@ -1,0 +1,11 @@
+zeebe:
+  clusterSize: 3
+  partitionCount: 1
+  replicationFactor: 1
+  pvcSize: 8Gi
+  
+zeebe-gateway:
+  replicas: 3
+  env:
+    - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
+      value: none
