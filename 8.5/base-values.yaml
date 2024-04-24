@@ -3,6 +3,8 @@
 global:
   image:
     tag: 8.5.0
+    pullSecrets:
+      - name: dev-c8-registry
   postgresql:
     auth:
       password: SetThisToMakeHelmUpgradesEasy
@@ -67,9 +69,6 @@ identityKeycloak:
  
 webModeler:
   enabled: true
-  image:
-    pullSecrets:
-      - name: dev-c8-registry
   restapi:
     mail:
       # Restapi.mail.smtpHost defines the host name of the SMTP server to be used by Web Modeler
@@ -96,11 +95,11 @@ webModeler:
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
         trace: DEBUG
     extraVolumes:
-      - name: dev-c8-separated
+      - name: dev-c8-separated-tls
         secret:
-          secretName: dev-c8-separated
+          secretName: dev-c8-separated-tls
     extraVolumeMounts:
-      - name: dev-c8-separated
+      - name: dev-c8-separated-tls
         mountPath: "/home/runner/dev.c8.separated.crt"
         subPath: tls.crt
   webapp:
@@ -114,11 +113,11 @@ webModeler:
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
         trace: DEBUG
     extraVolumes:
-      - name: dev-c8-separated
+      - name: dev-c8-separated-tls
         secret:
-          secretName: dev-c8-separated
+          secretName: dev-c8-separated-tls
     extraVolumeMounts:
-      - name: dev-c8-separated
+      - name: dev-c8-separated-tls
         mountPath: "/home/runner/dev.c8.separated.crt"
         subPath: tls.crt
 
