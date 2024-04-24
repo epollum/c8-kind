@@ -21,7 +21,7 @@ zeebe-gateway:
     host: "zeebe.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated"
+      secretName: "dev-c8-seperated-tls"
 
 operate:
   ingress:
@@ -29,7 +29,7 @@ operate:
     host: "operate.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated"
+      secretName: "dev-c8-seperated-tls"
   
 tasklist:
   ingress:
@@ -37,7 +37,7 @@ tasklist:
     host: "tasklist.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated"
+      secretName: "dev-c8-seperated-tls"
 
 optimize:
   ingress:
@@ -45,7 +45,7 @@ optimize:
     host: "optimize.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated"
+      secretName: "dev-c8-seperated-tls"
   
 identity:
   fullURL: "https://identity.c8.dev.local"
@@ -54,7 +54,7 @@ identity:
     host: "identity.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated"
+      secretName: "dev-c8-seperated-tls"
   
 identityKeycloak:
   ingress:
@@ -65,7 +65,7 @@ identityKeycloak:
     extraTls:
       - hosts:
         - keycloak.c8.dev.local
-        secretName: "dev-c8-separated"
+        secretName: "dev-c8-seperated-tls"
 
 webModeler:
   ingress:
@@ -74,9 +74,9 @@ webModeler:
       host: "modeler.c8.dev.local"
       tls:
         enabled: true
-        secretName: "dev-c8-separated"
+        secretName: "dev-c8-seperated-tls"
     websockets:
       host: "web-sockets.c8.dev.local"
       tls:
         enabled: true
-        secretName: "dev-c8-separated"
+        secretName: "dev-c8-seperated-tls"

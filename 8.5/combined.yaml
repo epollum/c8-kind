@@ -5,6 +5,18 @@ global:
     tls:
       enabled: true
       secretName: "dev-c8-combined-tls"
+  identity:
+    auth:
+      publicIssuerUrl: "https://c8.dev.local/auth/realms/camunda-platform"
+      operate:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://c8.dev.local/operate"
+      tasklist:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://c8.dev.local/tasklist"
+      optimize:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://c8.dev.local/optimize"
 
 operate:
   contextPath: "/operate"
@@ -23,14 +35,4 @@ console:
  
 identity:
   contextPath: "/identity"
-  auth:
-    publicIssuerUrl: "https://c8.dev.local/auth/realms/camunda-platform"
-    operate:
-      existingSecret: SetThisToMakeHelmUpgradesEasy
-      redirectUrl: "https://c8.dev.local/operate"
-    tasklist:
-      existingSecret: SetThisToMakeHelmUpgradesEasy
-      redirectUrl: "https://c8.dev.local/tasklist"
-    optimize:
-      existingSecret: SetThisToMakeHelmUpgradesEasy
-      redirectUrl: "https://c8.dev.local/optimize"
+  fullURL: "https://c8.dev.local/identity"
