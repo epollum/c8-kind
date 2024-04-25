@@ -1,4 +1,7 @@
 global:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-buffering: "off"
   identity:
     auth:
       publicIssuerUrl: "https://keycloak.c8.dev.local/auth/realms/camunda-platform"
@@ -14,6 +17,9 @@ global:
       webModeler:
         existingSecret: SetThisToMakeHelmUpgradesEasy
         redirectUrl: "https://modeler.c8.dev.local"
+      console:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://console.c8.dev.local"
   
 zeebe-gateway:
   ingress:
@@ -80,3 +86,11 @@ webModeler:
       tls:
         enabled: true
         secretName: "dev-c8-separated-tls"
+
+console:
+  ingress:
+    enabled: true
+    host: "console.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
