@@ -1,0 +1,9 @@
+controller:
+  replicaCount: 1
+  hostNetwork: true
+  service:
+    type: NodePort
+  config:
+    entries:
+      proxy-buffers: "4 32k"
+      proxy-buffer-size: "32k"
