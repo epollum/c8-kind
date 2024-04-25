@@ -1,7 +1,4 @@
 global:
-  ingress:
-    annotations:
-      nginx.ingress.kubernetes.io/proxy-buffering: "off"
   identity:
     auth:
       publicIssuerUrl: "https://keycloak.c8.dev.local/auth/realms/camunda-platform"
@@ -64,6 +61,10 @@ identity:
   
 identityKeycloak:
   ingress:
+    # Added in 8.5 due to upstream response too big message in nginx-ingress controller
+    annotations:
+      nginx.org/proxy-buffer-size: "32k"
+      nginx.org/proxy-buffers: "4 32k"
     enabled: true
     tls: true
     ingressClassName: "nginx"
