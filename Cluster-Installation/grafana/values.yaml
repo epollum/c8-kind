@@ -1,0 +1,21 @@
+grafana:
+  ingress:
+    enabled: true
+    hosts: 
+      - grafana.c8.dev.local
+    ingressClassName: nginx
+
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts: 
+      - prometheus.c8.dev.local
+  prometheusSpec:
+    additionalScrapeConfigs: |
+      - job_name: "zeebe"
+        scrape_interval: "15s"
+        metrics_path: "/actuator/prometheus"
+        scheme: "http"
+        static_configs:
+          - targets: ["dev-zeebe:9600"]
