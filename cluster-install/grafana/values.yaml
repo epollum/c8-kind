@@ -4,6 +4,7 @@ grafana:
     hosts: 
       - grafana.c8.dev.local
     ingressClassName: nginx
+  adminPassword: admin
 
 prometheus:
   ingress:
