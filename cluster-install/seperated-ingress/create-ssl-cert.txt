@@ -1,0 +1,10 @@
+
+openssl req -newkey rsa:4096 \
+            -x509 \
+            -sha256 \
+            -days 9999 \
+            -nodes \
+            -addext "subjectAltName = DNS:connectors.c8.dev.local,DNS:identity.c8.dev.local,DNS:keycloak.c8.dev.local,DNS:modeler.c8.dev.local,DNS:operate.c8.dev.local,DNS:optimize.c8.dev.local,DNS:tasklist.c8.dev.local,DNS:websockets.c8.dev.local,DNS:zeebe.c8.dev.local,DNS:console.c8.dev.local,DNS:web-sockets.c8.dev.local" \
+            -out dev.c8.separated.crt \
+            -keyout dev.c8.separated.key \
+            -subj "/CN=c8.dev.local"

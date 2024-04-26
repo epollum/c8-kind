@@ -1,0 +1,20 @@
+image:
+  tag: 2.5.0
+singleNode: true
+ingress:
+  enabled: true
+extraEnvs:
+  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+    value: StrongPassword1234!
+
+config:
+  opensearch.yml: |
+    plugins.security.disabled: true
+    s3.client.default.region: us-east-2
+    s3.client.default.endpoint: s3.amazonaws.com
+    s3.client.default.max_retries: 3
+    s3.client.default.protocol: http
+
+plugins:
+  enabled: true
+  installList: [repository-s3]
