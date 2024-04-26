@@ -1,4 +1,5 @@
 controller:
+  kind: daemonset
   replicaCount: 1
   hostNetwork: true
   service:
