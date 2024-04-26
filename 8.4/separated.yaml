@@ -1,0 +1,92 @@
+global:
+  identity:
+    auth:
+      publicIssuerUrl: "https://keycloak.c8.dev.local/auth/realms/camunda-platform"
+      operate:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://operate.c8.dev.local"
+      tasklist:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://tasklist.c8.dev.local"
+      optimize:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://optimize.c8.dev.local"
+      webModeler:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://modeler.c8.dev.local"
+      console:
+        existingSecret: SetThisToMakeHelmUpgradesEasy
+        redirectUrl: "https://console.c8.dev.local"
+  
+zeebe-gateway:
+  ingress:
+    enabled: true
+    host: "zeebe.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
+
+operate:
+  ingress:
+    enabled: true
+    host: "operate.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
+  
+tasklist:
+  ingress:
+    enabled: true
+    host: "tasklist.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
+
+optimize:
+  ingress:
+    enabled: true
+    host: "optimize.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
+  
+identity:
+  fullURL: "https://identity.c8.dev.local"
+  ingress:
+    enabled: true
+    host: "identity.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
+  keycloak:
+    ingress:
+      enabled: true
+      tls: true
+      ingressClassName: "nginx"
+      hostname: "keycloak.c8.dev.local"
+      extraTls:
+        - hosts:
+          - keycloak.c8.dev.local
+          secretName: "dev-c8-separated-tls"
+
+webModeler:
+  ingress:
+    enabled: true
+    webapp:
+      host: "modeler.c8.dev.local"
+      tls:
+        enabled: true
+        secretName: "dev-c8-separated-tls"
+    websockets:
+      host: "web-sockets.c8.dev.local"
+      tls:
+        enabled: true
+        secretName: "dev-c8-separated-tls"
+
+console:
+  ingress:
+    enabled: true
+    host: "console.c8.dev.local"
+    tls:
+      enabled: true
+      secretName: "dev-c8-separated-tls"
