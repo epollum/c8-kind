@@ -19,3 +19,6 @@ prometheus:
         scheme: "http"
         static_configs:
           - targets: ["dev-zeebe:9600"]
+
+nodeExporter:
+  enabled: false
