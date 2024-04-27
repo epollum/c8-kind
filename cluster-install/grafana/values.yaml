@@ -1,0 +1,17 @@
+grafana:
+  ingress:
+    enabled: true
+    hosts: 
+      - grafana.c8.dev.local
+    ingressClassName: nginx
+  adminPassword: admin
+
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts: 
+      - prometheus.c8.dev.local
+  prometheusSpec:
+    #below line automatically adds all service monitors
+    serviceMonitorSelectorNilUsesHelmValues: false

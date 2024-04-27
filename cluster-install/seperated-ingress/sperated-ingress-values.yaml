@@ -14,9 +14,6 @@ global:
       webModeler:
         existingSecret: SetThisToMakeHelmUpgradesEasy
         redirectUrl: "https://modeler.c8.dev.local"
-      console:
-        existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://console.c8.dev.local"
   
 zeebe-gateway:
   ingress:
@@ -24,7 +21,7 @@ zeebe-gateway:
     host: "zeebe.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated-tls"
+      secretName: "dev-c8-separated"
 
 operate:
   ingress:
@@ -32,7 +29,7 @@ operate:
     host: "operate.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated-tls"
+      secretName: "dev-c8-separated"
   
 tasklist:
   ingress:
@@ -40,7 +37,7 @@ tasklist:
     host: "tasklist.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated-tls"
+      secretName: "dev-c8-separated"
 
 optimize:
   ingress:
@@ -48,16 +45,16 @@ optimize:
     host: "optimize.c8.dev.local"
     tls:
       enabled: true
-      secretName: "dev-c8-separated-tls"
+      secretName: "dev-c8-separated"
   
 identity:
   fullURL: "https://identity.c8.dev.local"
   ingress:
+  enabled: true
+  host: "identity.c8.dev.local"
+  tls:
     enabled: true
-    host: "identity.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated-tls"
+    secretName: "dev-c8-separated"
   
 identityKeycloak:
   ingress:
@@ -68,7 +65,7 @@ identityKeycloak:
     extraTls:
       - hosts:
         - keycloak.c8.dev.local
-        secretName: "dev-c8-separated-tls"
+        secretName: "dev-c8-separated"
 
 webModeler:
   ingress:
@@ -77,17 +74,9 @@ webModeler:
       host: "modeler.c8.dev.local"
       tls:
         enabled: true
-        secretName: "dev-c8-separated-tls"
+        secretName: "dev-c8-separated"
     websockets:
       host: "web-sockets.c8.dev.local"
       tls:
         enabled: true
-        secretName: "dev-c8-separated-tls"
-
-console:
-  ingress:
-    enabled: true
-    host: "console.c8.dev.local"
-    tls:
-      enabled: true
-      secretName: "dev-c8-separated-tls"
+        secretName: "dev-c8-separated"

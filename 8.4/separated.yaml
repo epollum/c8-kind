@@ -58,17 +58,16 @@ identity:
     tls:
       enabled: true
       secretName: "dev-c8-separated-tls"
-  
-identityKeycloak:
-  ingress:
-    enabled: true
-    tls: true
-    ingressClassName: "nginx"
-    hostname: "keycloak.c8.dev.local"
-    extraTls:
-      - hosts:
-        - keycloak.c8.dev.local
-        secretName: "dev-c8-separated-tls"
+  keycloak:
+    ingress:
+      enabled: true
+      tls: true
+      ingressClassName: "nginx"
+      hostname: "keycloak.c8.dev.local"
+      extraTls:
+        - hosts:
+          - keycloak.c8.dev.local
+          secretName: "dev-c8-separated-tls"
 
 webModeler:
   ingress:

@@ -1,0 +1,12 @@
+global:
+  elasticsearch:
+    disableExporter: true
+  opensearch:
+    enabled: true
+    url:
+      host: opensearch-cluster-master
+      port: 9200
+      protocol: http
+
+elasticsearch:
+  enabled: false
