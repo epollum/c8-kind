@@ -3,17 +3,17 @@ zeebe:
     - name: ZEEBE_BROKER_DATA_BACKUP_STORE
       value: s3
     - name: ZEEBE_BROKER_DATA_BACKUP_S3_BUCKETNAME
-    	value: ""
+      value: ""
     - name: ZEEBE_BROKER_DATA_BACKUP_S3_BASEPATH
-    	value: ""
-    - name: ZEEBE_BROKER_DATA_BACKUP_S3_ENDPOINT
-    	value: "s3.amazonaws.com"
+      value: ""
     - name: ZEEBE_BROKER_DATA_BACKUP_S3_REGION
-    	value: ""
+      value: ""
     - name: ZEEBE_BROKER_DATA_BACKUP_S3_ACCESSKEY
-    	value: ""
+      value: ""
     - name: ZEEBE_BROKER_DATA_BACKUP_S3_SECRETKEY
-    	value: ""
+      value: ""
+    - name: ZEEBE_BROKER_DATA_BACKUP_S3_APICALLTIMEOUT
+      value: "PT300s"
 
 operate:
   env:
