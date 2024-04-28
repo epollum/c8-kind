@@ -20,7 +20,7 @@ zeebe:
     - name: LOGGING_LEVEL_IO_CAMUNDA_ZEEBE
       value: DEBUG
   
-zeebe-gateway:
+zeebeGateway:
   replicas: 1
   env:
     - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE

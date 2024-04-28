@@ -18,7 +18,7 @@ global:
         existingSecret: SetThisToMakeHelmUpgradesEasy
         redirectUrl: "https://console.c8.dev.local"
   
-zeebe-gateway:
+zeebeGateway:
   ingress:
     enabled: true
     host: "zeebe.c8.dev.local"
