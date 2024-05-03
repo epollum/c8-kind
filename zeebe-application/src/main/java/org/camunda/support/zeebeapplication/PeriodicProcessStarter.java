@@ -32,6 +32,10 @@ public class PeriodicProcessStarter {
 
     @PostConstruct
     public void deployAllProcesses() throws IOException, URISyntaxException {
+        log.info("deploying the following resources:");
+        List<String> bpmns = List.of("usertask.bpmn");
+        bpmns.forEach(item -> log.info(item));
+
         zeebeClient.newDeployResourceCommand().addResourceFromClasspath("usertask.bpmn").send().join();
     }
 

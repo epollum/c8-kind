@@ -3,11 +3,11 @@ single-node:
 	kubectl create secret tls dev-c8-separated-tls \
 			--cert dev.c8.separated.crt \
 			--key dev.c8.separated.key
-	helm install -f ../nginx-ingress/nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0
+	kubectl apply -f ../ingress-nginx/controller.yaml
 
 multi-node:
 	kind create cluster --config create-multi-node-cluster.yaml
 	kubectl create secret tls dev-c8-separated-tls \
 			--cert dev.c8.separated.crt \
 			--key dev.c8.separated.key
-	helm install -f ../nginx-ingress/nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0
+	kubectl apply -f ../ingress-nginx/controller.yaml
