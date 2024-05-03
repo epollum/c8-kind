@@ -34,10 +34,10 @@ kubectl create secret docker-registry dev-c8-registry \
 --docker-email=firstname.lastname@camunda.com
 ```
 
-4. Install the ingress controller of your choice. Open the controller's folder to find the relevant values.yaml to install.
+4. Install the ingress controller of your choice. Open the controller's folder to find the relevant values.yaml to install. Below find the instructions to install the Camunda preferred ingress, ingress-nginx
 
 ```
-helm install -f nginx_ingress_values.yaml nginx-ingress oci://ghcr.io/nginxinc/charts/nginx-ingress --version 0.18.0
+kubectl apply -f controller.yaml
 ```
 
 5. You have all the components needed to install Camunda 8. Navigate to the verison you would like to install and select the options you'd like to install. For example, if you would like to install a basic setup with combined ingress, you can naviagte to the version you want to install and run:
