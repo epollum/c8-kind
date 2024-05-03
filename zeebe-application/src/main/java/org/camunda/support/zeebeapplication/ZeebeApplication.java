@@ -2,7 +2,6 @@ package org.camunda.support.zeebeapplication;
 
 import io.camunda.zeebe.client.ZeebeClient;
 import io.camunda.zeebe.client.impl.ZeebeClientBuilderImpl;
-import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
