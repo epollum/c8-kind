@@ -1,0 +1,7 @@
+controller:
+  kind: DaemonSet
+  admissionWebhooks:
+    enabled: false
+  hostNetwork: true
+  service:
+    type: NodePort
