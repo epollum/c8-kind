@@ -4,16 +4,16 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_0wjsf6b</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_0wjsf6b" sourceRef="StartEvent_1" targetRef="Activity_06j3t0d" />
-    <bpmn:serviceTask id="Activity_06j3t0d" name="Foo">
+    <bpmn:sequenceFlow id="Flow_0wjsf6b" sourceRef="StartEvent_1" targetRef="Activity_Foo" />
+    <bpmn:serviceTask id="Activity_Foo" name="Foo">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="foo" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0wjsf6b</bpmn:incoming>
       <bpmn:outgoing>Flow_1pbtntb</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_1pbtntb" sourceRef="Activity_06j3t0d" targetRef="Activity_0b2bxgf" />
-    <bpmn:serviceTask id="Activity_0b2bxgf" name="Bar">
+    <bpmn:sequenceFlow id="Flow_1pbtntb" sourceRef="Activity_Foo" targetRef="Activity_Bar" />
+    <bpmn:serviceTask id="Activity_Bar" name="Bar">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="bar" />
       </bpmn:extensionElements>
@@ -23,18 +23,18 @@
     <bpmn:endEvent id="Event_0tgbkds">
       <bpmn:incoming>Flow_09ov8p9</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_09ov8p9" sourceRef="Activity_0b2bxgf" targetRef="Event_0tgbkds" />
+    <bpmn:sequenceFlow id="Flow_09ov8p9" sourceRef="Activity_Bar" targetRef="Event_0tgbkds" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_FooBar">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_01x8033_di" bpmnElement="Activity_06j3t0d">
+      <bpmndi:BPMNShape id="Activity_01x8033_di" bpmnElement="Activity_Foo">
         <dc:Bounds x="270" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1woytjh_di" bpmnElement="Activity_0b2bxgf">
+      <bpmndi:BPMNShape id="Activity_1woytjh_di" bpmnElement="Activity_Bar">
         <dc:Bounds x="430" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0tgbkds_di" bpmnElement="Event_0tgbkds">

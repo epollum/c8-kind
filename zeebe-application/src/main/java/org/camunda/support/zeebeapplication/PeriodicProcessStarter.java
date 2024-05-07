@@ -33,17 +33,17 @@ public class PeriodicProcessStarter {
 //    @PostConstruct
 //    public void deployAllProcesses() throws IOException, URISyntaxException {
 //        log.info("deploying the following resources:");
-//        List<String> bpmns = List.of("usertask.bpmn");
+//        List<String> bpmns = List.of("usertask.bpmn","foobar.bpmn");
 //        bpmns.forEach(item -> log.info(item));
 //        zeebeClient.newDeployResourceCommand().addResourceFromClasspath("usertask.bpmn").send().join();
 //    }
 
-    @Scheduled(fixedRate = 5000L)
+    @Scheduled(fixedRate = 1L)
     public void startUserTaskProcesses() {
         final ProcessInstanceEvent event =
                 zeebeClient
                         .newCreateInstanceCommand()
-                        .bpmnProcessId("Process_User_Task")
+                        .bpmnProcessId("Process_UserTask")
                         .latestVersion()
                         .send()
                         .join();
@@ -51,7 +51,7 @@ public class PeriodicProcessStarter {
         logInstance(event);
     }
 
-    @Scheduled(fixedRate = 5000L)
+    @Scheduled(fixedRate = 1L)
     public void startFooBarProcess(){
         final ProcessInstanceEvent event =
                 zeebeClient
