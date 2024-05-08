@@ -1,1 +1,7 @@
- dd if=/dev/urandom of=out-put-file bs=1M count=1 seek=1
+ dd if=/dev/urandom of=raft-partition-partition-2-1.log bs=1M count=1 seek=1
+
+ 1. Run cluster for > 30 minutes.
+ 2. Find followers for partition 2
+ 3. exec into each follower and mess up the log segments in the data folder
+ 4. reboot each follower.
+ 5. chaos.
