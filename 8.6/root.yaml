@@ -1,0 +1,14 @@
+zeebe:
+  clusterSize: 1
+  partitionCount: 1
+  replicationFactor: 1
+  pvcSize: 8Gi
+  debug: true
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_ZEEBE
+      value: DEBUG
+  containerSecurityContext:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    privileged: true
