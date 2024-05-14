@@ -41,6 +41,10 @@ tasklist:
 optimize:
   env:
     - name: LOGGING_LEVEL_IO_CAMUNDA_OPTIMIZE
+
+connectors:
+  env:
+    - name: LOGGING_LEVEL_IO_CAMUNDA_CONNECTOR
   
 identity:
   fullURL: "https://identity.c8.dev.local"
