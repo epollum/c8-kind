@@ -2,7 +2,7 @@
 # Note: you can change the global.image.tag version value as needed.
 global:
   image:
-    tag: 8.5.0
+    tag: 8.6.0-alpha1
     pullSecrets:
       - name: dev-c8-registry
   postgresql:
