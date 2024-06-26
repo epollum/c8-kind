@@ -2,13 +2,14 @@
 # Note: you can change the global.image.tag version value as needed.
 global:
   image:
-    tag: 8.6.0-alpha1
+    tag: 8.6.0-alpha2
     pullSecrets:
       - name: dev-c8-registry
   postgresql:
     auth:
       password: SetThisToMakeHelmUpgradesEasy
-  
+      postgresPassword: SetThisToMakeLoginEasy
+        
 # Reduce Zeebe and Gateway replicas and resources to make it run locally
 zeebe:
   clusterSize: 1
@@ -90,40 +91,18 @@ webModeler:
       # Restapi.mail.fromName defines the name that will be displayed as the sender of emails sent by Web Modeler
       fromName: "Camunda Platform"
     env:
-      - name: ZEEBE_INSECURE_CONNECTION
-        value: "true"
-      - name: ZEEBE_CA_CERTIFICATE_PATH
-        value: "/home/runner/dev.c8.separated.crt"
-      - name: LOGGING_LEVEL_IO_GRPC
-        value: TRACE
-      - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
-        trace: DEBUG
-    extraVolumes:
-      - name: dev-c8-separated-tls
-        secret:
-          secretName: dev-c8-separated-tls
-    extraVolumeMounts:
-      - name: dev-c8-separated-tls
-        mountPath: "/home/runner/dev.c8.separated.crt"
-        subPath: tls.crt
-  webapp:
+
+  webModeler:
+  enabled: true
+  restapi:
+    mail:
+      fromAddress: "no-reply@eapbm.de"
+      fromName: "Camunda Platform"
     env:
-      - name: ZEEBE_SECURE_CONNECTION
-        value: "false"
-      - name: ZEEBE_CLIENT_SSL_ROOT_CERTS_PATH
-        value: "/home/runner/dev.c8.separated.crt"
       - name: LOGGING_LEVEL_IO_GRPC
         value: TRACE
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
-        trace: DEBUG
-    extraVolumes:
-      - name: dev-c8-separated-tls
-        secret:
-          secretName: dev-c8-separated-tls
-    extraVolumeMounts:
-      - name: dev-c8-separated-tls
-        mountPath: "/home/runner/dev.c8.separated.crt"
-        subPath: tls.crt
+        value: DEBUG
 
 postgresql:
   enabled: true
@@ -133,3 +112,5 @@ elasticsearch:
 #  imageTag: 7.17.3  # Uncomment this line and set a value if you want to override the default chart value.
   master:
     replicaCount: 1
+    persistence:
+      size: 50G

@@ -2,12 +2,13 @@
 # Note: you can change the global.image.tag version value as needed.
 global:
   image:
-    tag: 8.5.0
+    tag: 8.5.2
     pullSecrets:
       - name: dev-c8-registry
   postgresql:
     auth:
       password: SetThisToMakeHelmUpgradesEasy
+      postgresPassword: SetThisToMakeLoginEasy
   
 # Reduce Zeebe and Gateway replicas and resources to make it run locally
 zeebe:
@@ -22,9 +23,11 @@ zeebe:
   
 zeebeGateway:
   replicas: 1
+  debug: true
+  logLevel: DEBUG
   env:
-    - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
-      value: none
+    # - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
+    #   value: none
     - name: LOGGING_LEVEL_IO_CAMUNDA_GATEWAY
       value: DEBUG
 

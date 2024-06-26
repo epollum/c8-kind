@@ -6,3 +6,8 @@ zeebe:
   
 zeebe-gateway:
   replicas: 3
+  env:
+  - name: ZEEBE_GATEWAY_SECURITY_AUTHENTICATION_MODE
+    value: none
+  - name: LOGGING_LEVEL_IO_CAMUNDA_GATEWAY
+    value: DEBUG
